@@ -1,23 +1,30 @@
 name: Debug Shell (Manual Only)
 
 on:
-  workflow_dispatch: # 手動実行のみ
+  workflow_dispatch:
 
 jobs:
   interactive_debug:
     runs-on: ubuntu-latest
-    container: zephyrprojectrtos/ci:latest
-
+    # ここでは一度 container を外して、ディスク掃除後に自分で起動します
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      # ① ディスク容量を空けるアクションを実行
+      - name: Free Disk Space
+        uses: jlumbroso/free-disk-space@v1.3.1
         with:
-          path: myprj
+          tool-cache: true
+          android: true
+          dotnet: true
+          haskell: true
 
-      # ここで停止して、あなたの接続を待ちます
-      - name: Open Interactive Shell
+      # ② 掃除が終わった後に Docker 経由で Zephyr 環境を立ち上げる
+      - name: Run Zephyr Container and tmate
+        run: |
+          docker run -d --name zephyr-env -v ${{ github.workspace }}:/workdir -w /workdir zephyrprojectrtos/zephyr-build:latest sleep infinity
+          
+      - name: Setup tmate
         uses: mxschmitt/action-tmate@v3
         with:
-          # 接続後、自動的にセッションを終了させないための設定
-          limit-access-to-actor: true 
-        timeout-minutes: 60 # 1時間で自動終了（消し忘れ防止）
+          # コンテナの中で操作できるようにする
+          sudo: true
