@@ -4,7 +4,6 @@ on: [push, pull_request]
 
 jobs:
   build:
-  interactive_debug:
     runs-on: ubuntu-latest
     # ここでは一度 container を外して、ディスク掃除後に自分で起動します
     
