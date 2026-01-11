@@ -12,7 +12,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          path: main_repo
+          path: myprj
 
       # ここで停止して、あなたの接続を待ちます
       - name: Open Interactive Shell
