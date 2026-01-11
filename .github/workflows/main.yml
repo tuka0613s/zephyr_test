@@ -29,7 +29,7 @@ jobs:
 
       - name: Initialize west
         run: |
-          west init -l main_repo
+          west init -l myprj
           west update --narrow -o=--depth=1
           west zephyr-export
 
