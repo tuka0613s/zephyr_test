@@ -6,7 +6,7 @@ on:
 jobs:
   interactive_debug:
     runs-on: ubuntu-latest
-    container: zephyrprojectrtos/zephyr-build:latest
+    container: zephyrprojectrtos/zephyr-build-arm:latest
 
     steps:
       - name: Checkout code
