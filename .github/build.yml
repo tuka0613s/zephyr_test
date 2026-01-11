@@ -29,7 +29,7 @@ jobs:
       - name: Build application
         run: |
           # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
-          west build -b nrf52dk_nrf52832 main_repo/samples/hello_world
+          west build -b native_sim myprj/samples/hello_world
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
