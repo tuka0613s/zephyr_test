@@ -20,18 +20,12 @@ jobs:
       # ② 掃除が終わった後に Docker 経由で Zephyr 環境を立ち上げる
       - name: Run Zephyr Container and tmate
         run: |
-          docker run -d --name zephyr-env -v ${{ github.workspace }}:/workdir -w /workdir zephyrprojectrtos/zephyr-build:latest sleep infinity
+          docker run -d --name zephyr-env -v ${{ github.workspace }}:/workdir -w /workdir zephyrprojectrtos/ci:latest sleep infinity
 
       - name: Checkout
         uses: actions/checkout@v4
         with:
           path: myprj
-
-      - name: Initialize west
-        run: |
-          west init
-          west update --narrow -o=--depth=1
-          west zephyr-export
 
       - name: Build application
         run: |
