@@ -30,12 +30,12 @@ jobs:
       - name: init
         run: |
           # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
-          west init .
+          docker exec zephyr-env west init .
 
       - name: Build application
         run: |
           # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
-          west build -b native_sim myprj
+          docker exec zephyr-env west build -b native_sim myprj
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
