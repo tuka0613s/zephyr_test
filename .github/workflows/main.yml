@@ -55,5 +55,5 @@ jobs:
         with:
           name: zephyr-binary
           path: |
-            /build/zephyr/zephyr.elf
+            build/zephyr/zephyr.elf
             
