@@ -25,7 +25,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          path: myprj
+          path: mycheckout
 
       - name: Debug env
         run: |
@@ -41,13 +41,14 @@ jobs:
       - name: Debug env2
         run: |
           docker exec zephyr-env ls
-          docker exec zephyr-env ls myprj           
+          docker exec zephyr-env ls checkout
+          docker exec zephyr-env ls checkout/myprj          
           docker exec zephyr-env pwd
 
       - name: Build application
         run: |
           # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
-          docker exec zephyr-env west build -b native_sim myprj
+          docker exec zephyr-env west build -b native_sim checkout/myprj
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
