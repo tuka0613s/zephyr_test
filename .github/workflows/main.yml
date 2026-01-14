@@ -47,13 +47,13 @@ jobs:
           # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
           docker exec zephyr-env west build -b native_sim mycheckout/myprj
           docker exec zephyr-env ls
-          docker exec zephyr-env echo "ls zephyr"
-          docker exec zephyr-env ls zephyr
+          docker exec zephyr-env echo "ls build"
+          docker exec zephyr-env ls build/zephyr
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
           name: zephyr-binary
           path: |
-            /build/zephyr/zephyr.*
+            /build/zephyr/zephyr.elf
             
