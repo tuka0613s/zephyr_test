@@ -18,7 +18,7 @@ jobs:
           haskell: true
 
       # ② 掃除が終わった後に Docker 経由で Zephyr 環境を立ち上げる
-      - name: Run Zephyr Container and tmate
+      - name: Run Zephyr Container
         run: |
           docker run -d --name zephyr-env -v ${{ github.workspace }}:/workdir -w /workdir ghcr.io/zephyrproject-rtos/ci:latest sleep infinity
 
@@ -27,9 +27,8 @@ jobs:
         with:
           path: myprj
 
-      - name: ls
+      - name: Debug env
         run: |
-          # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
           ls
           pwd
           docker exec zephyr-env ls
@@ -39,6 +38,8 @@ jobs:
         run: |
           # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
           docker exec zephyr-env west init .
+          docker exec zephyr-env ls
+
 
       - name: Build application
         run: |
