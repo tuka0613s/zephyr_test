@@ -37,9 +37,9 @@ jobs:
           docker exec zephyr-env ls
           docker exec zephyr-env echo "ls"
           docker exec zephyr-env ls mycheckout
-          docker exec zephyr-env echo "ls mycheckout"
-          docker exec zephyr-env ls mycheckout/myprj
           docker exec zephyr-env echo "ls mycheckout/myprj"
+          docker exec zephyr-env ls mycheckout/myprj
+          docker exec zephyr-env echo "pwd"
           docker exec zephyr-env pwd
 
       - name: Build application
@@ -47,6 +47,7 @@ jobs:
           # ボード名（例: nrf52dk_nrf52832）は適宜変更してください
           docker exec zephyr-env west build -b native_sim mycheckout/myprj
           docker exec zephyr-env ls
+          docker exec zephyr-env echo "ls zephyr"
           docker exec zephyr-env ls zephyr
 
       - name: Archive artifacts
