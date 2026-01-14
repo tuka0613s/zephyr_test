@@ -25,24 +25,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          path: mycheckout
-
-      - name: Debug env
-        run: |
-          ls
-          pwd
-          docker exec zephyr-env ls
-          docker exec zephyr-env pwd            
+          path: mycheckout        
 
       - name: init
         run: |
           docker exec zephyr-env west init .
 
-      - name: Debug env2
+      - name: Debug env
         run: |
           docker exec zephyr-env ls
-          docker exec zephyr-env ls checkout
-          docker exec zephyr-env ls checkout/myprj          
+          docker exec zephyr-env ls mycheckout
+          docker exec zephyr-env ls mycheckout/myprj          
           docker exec zephyr-env pwd
 
       - name: Build application
