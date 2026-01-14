@@ -41,8 +41,7 @@ jobs:
       - name: Debug env2
         run: |
           docker exec zephyr-env ls
-          docker exec zephyr-env ls -R
-          docker exec zephyr-env ls -R myprj           
+          docker exec zephyr-env ls myprj           
           docker exec zephyr-env pwd
 
       - name: Build application
