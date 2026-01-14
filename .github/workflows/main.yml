@@ -33,9 +33,13 @@ jobs:
 
       - name: Debug env
         run: |
+          # ls
           docker exec zephyr-env ls
+          # ls mycheckout
           docker exec zephyr-env ls mycheckout
+          # ls mycheckout/myprj 
           docker exec zephyr-env ls mycheckout/myprj          
+          # pwd
           docker exec zephyr-env pwd
 
       - name: Build application
