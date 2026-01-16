@@ -1,4 +1,4 @@
-name: hello_ci_cd
+name: fail_test
 
 on: 
   pull_request: 
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test_echo:
+  test_echo_fail:
     runs-on: ubuntu-latest
     
     steps:
