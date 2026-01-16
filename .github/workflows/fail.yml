@@ -1,8 +1,8 @@
 name: fail_test
 
 on: 
-#  pull_request: 
-#    branches: main
+  pull_request: 
+    branches: alway_ng_ci_check
   workflow_dispatch:
 
 jobs:
