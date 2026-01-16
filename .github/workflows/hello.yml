@@ -1,4 +1,4 @@
-name: Zephyr Build
+name: hello_ci_cd
 
 on: 
   push:
@@ -11,6 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - name: Run Zephyr Container
+      - name: Run echo.
         run: |
          echo "hello ci/cd"
