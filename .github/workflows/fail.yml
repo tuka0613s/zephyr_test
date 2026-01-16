@@ -1,0 +1,15 @@
+name: hello_ci_cd
+
+on: 
+  pull_request: 
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  test_echo:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Run echo.
+        run: |
+         fail "hello ci/cd"
