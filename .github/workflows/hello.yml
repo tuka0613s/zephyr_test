@@ -1,0 +1,16 @@
+name: Zephyr Build
+
+on: 
+  push:
+  pull_request: 
+    branches: main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Run Zephyr Container
+        run: |
+         echo "hello ci/cd"
