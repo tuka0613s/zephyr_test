@@ -4,6 +4,7 @@
 int main(void)
 {
 	//add comment 1.
+	//add comment 2.
 	printf("Hello World! from Zephyr CI/CD\n");
 
 	while (1) {
