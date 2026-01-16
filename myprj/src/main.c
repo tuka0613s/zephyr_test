@@ -3,6 +3,7 @@
 
 int main(void)
 {
+	//test
 	printf("Hello World! from Zephyr CI/CD\n");
 
 	while (1) {
